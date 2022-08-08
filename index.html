@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto Final Ortega - Simulador de Prestamos</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://css.gg/close-o.css" rel="stylesheet" />
+
+    <!-- Javascript -->
+    <script defer src="./criptos-precios/cotizaciones-criptos.js"></script>
+    <script defer src="./usuarios/users.js" type="module"></script>
+    <script defer src="./simulador/simulacion.js" type="module"></script>
+    <script src="./simulaciones-guardadas/sim-guardadas.js" type="module"></script>
+
+    <!-- Librerias -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header" id="header">
+            <h1>Simulador de Préstamos</h1>
+        </header>
+        <aside class="aside" id="log">
+            <div class="logIn">
+                <p>Iniciar sesión</p>
+                <input type="number" name="DNI" id="logDni" placeholder="DNI" />
+                <input type="password" name="password" id="logPass" placeholder="Contraseña" />
+                <button id="btnLog">Ingresar</button>
+            </div>
+            <hr />
+            <button id="btnSign">Crear cuenta nueva</button>
+        </aside>
+
+        <section class="section">
+            <div class="box-inputs">
+                <fieldset>
+                    <legend>
+                        <h4>¿Tiene cuenta sueldo?</h4>
+                    </legend>
+                    <input type="radio" id="sueldo-si" name="sueldo" value="si" />
+                    <h4>SI</h4>
+                    <input type="radio" id="sueldo-no" name="sueldo" value="no" checked />
+                    <h4>NO</h4>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <h4>Monto</h4>
+                    </legend>
+                    <div id="etiqueta-monto"></div>
+                    <input type="range" class="inp_range" id="monto" min="0" max="1000000" step="10000" value="0" />
+                    <input type="text" class="inp_number" id="inp-monto" value="-" disabled />
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <h4>Cantidad de Cuotas</h4>
+                    </legend>
+                    <div id="etiqueta-cuotas"></div>
+                    <input type="range" class="inp_range" id="cuotas" min="6" max="84" step="3" value="6" />
+                    <input type="text" class="inp_number" id="inp-cuotas" value="-" disabled />
+                </fieldset>
+            </div>
+            <div class="box-info">
+                <div id="" class="prim_cuota">
+                    <h2>PRIMERA CUOTA</h2>
+
+                    <div class="parraf">
+                        <h4>Cuota Pura</h4>
+                        <p id="cuo_pura"></p>
+                    </div>
+
+                    <hr />
+
+                    <div class="parraf">
+                        <h4>I.V.A. (21%)</h4>
+                        <p id="iva"></p>
+                    </div>
+
+                    <hr />
+
+                    <div class="parraf">
+                        <h4>Interés</h4>
+                        <p id="int"></p>
+                    </div>
+                </div>
+                <div class="cuota_pura">
+                    <h3>CUOTA FINAL</h3>
+                    <h1 id="cuo_final"></h1>
+                </div>
+
+                <div class="total_devolver">
+                    <h3>TOTAL A DEVOLVER</h3>
+                    <h1 id="total_dev"></h1>
+                </div>
+            </div>
+        </section>
+
+        <aside class="aside-criptos" id="dolar">
+            <div class="container-cripto" id="cont_cripto">
+                <div class="box" id="box"></div>
+            </div>
+        </aside>
+    </div>
+    <section id="center_sim_cargados" class="center_guardados">
+        <div id="close_sim" class="icons8-eliminar"></div>
+
+
+        <div class="container_sim" id="cont_sim"></div>
+    </section>
+</body>
+
+</html>
